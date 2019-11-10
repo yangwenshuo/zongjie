@@ -1,0 +1,106 @@
+Govim
+
+.vim和.vimrc都需要自己创建
+
+
+
+去home目录下执行这个,下载govim
+curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+
+然后去这个文件里面
+vim ~/.vimrc.before.local
+let g:spf13_bundle_groups=['general', 'youcompleteme', 'python', 'programming', 'misc', 'writing', 'go']
+写入这个后,执行:BundleInstall
+
+然后
+cd ~/.vim/bundle/YCM
+git submodule update --init --recursive
+去下载cmake
+先去官网下载,下载完后执行
+sudo “/Applications/CMake.app/Contents/bin/cmake-gui” —install
+然后在ycm目录下执行
+./install.py --gocode-completer
+然后
+vim
+:BinaryInstall
+
+
+安装vimplugin
+去.vim下面新建autoload文件夹 去这个文件夹里面执行这个下载plug.vim插件
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+先去.vimrc.local里面添加这么几句,然后执行:PlugInstall就可以安装第一个插件了
+call plug#begin()
+Plug 'morhetz/gruvbox'
+call plug#end()
+colorscheme gruvbox
+set background=dark
+
+注意哦 是PlugInstall, 而不是PluginIntall
+
+
+然后去vimrc.local里面写入这些安装
+set encoding=utf-8
+
+" edit late
+let g:indent_guides_enable_on_vim_startup = 0
+set fileencodings=utf-8,gb2312,gbk,gb18030
+
+call plug#begin()
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
+Plug 'mhartington/oceanic-next'
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
+Plug 'junegunn/seoul256.vim'
+Plug 'solarnz/thrift.vim'
+Plugin 'iberianpig/tig-explorer.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+call plug#end()
+
+
+"gruvbox
+"colorscheme gruvbox
+"set background=dark
+
+"oceanic-next
+" Theme
+syntax enable
+"for vim 7
+"set t_Co=256
+
+"for vim 8
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+colorscheme OceanicNext
+
+" colorscheme jellybeans
+
+"autocmd ColorScheme janah highlight Normal ctermbg=235
+"colorscheme janah
+
+" Unified color scheme (default: dark)
+"colo seoul256
+
+" Light color scheme
+"colo seoul256-light
+
+" Switch
+"set background=dark
+"set background=light
+
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+set nospell
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<space>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
