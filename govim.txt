@@ -18,6 +18,7 @@ git submodule update --init --recursive
 去下载cmake
 先去官网下载,下载完后执行
 sudo “/Applications/CMake.app/Contents/bin/cmake-gui” —install
+直接apt-get install cmake 或者brew install cmake就可以了
 然后在ycm目录下执行
 ./install.py --gocode-completer
 然后
