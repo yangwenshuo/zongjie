@@ -21,9 +21,11 @@ sudo “/Applications/CMake.app/Contents/bin/cmake-gui” —install
 直接apt-get install cmake 或者brew install cmake就可以了
 然后在ycm目录下执行
 ./install.py --gocode-completer
-然后
-vim
-:BinaryInstall
+
+ERROR: Unable to find executable 'go'. go is required to build gocode.
+这个错误并不影响执行
+
+如果出现了ulntips的错误,那就是去下载brew 的vim,因为他的python是3
 
 
 安装vimplugin
@@ -38,6 +40,10 @@ colorscheme gruvbox
 set background=dark
 
 注意哦 是PlugInstall, 而不是PluginIntall
+
+然后
+vim
+:BinaryInstall
 
 
 然后去vimrc.local里面写入这些安装
