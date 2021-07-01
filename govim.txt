@@ -1,5 +1,10 @@
 Govim
 
+在build的youcompeteme的时候要用install.py
+
+centos安装git
+https://blog.csdn.net/qq_28903377/article/details/86148687
+
 .vim和.vimrc都需要自己创建
 
 
