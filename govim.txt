@@ -17,20 +17,7 @@ vim ~/.vimrc.before.local
 let g:spf13_bundle_groups=['general', 'youcompleteme', 'python', 'programming', 'misc', 'writing', 'go']
 写入这个后,执行:BundleInstall
 
-然后
-cd ~/.vim/bundle/YCM
-git submodule update --init --recursive
-去下载cmake
-先去官网下载,下载完后执行
-sudo “/Applications/CMake.app/Contents/bin/cmake-gui” —install
-直接apt-get install cmake 或者brew install cmake就可以了
-然后在ycm目录下执行
-./install.py --gocode-completer
 
-ERROR: Unable to find executable 'go'. go is required to build gocode.
-这个错误并不影响执行
-
-如果出现了ulntips的错误,那就是去下载brew 的vim,因为他的python是3
 
 
 安装vimplugin
@@ -44,11 +31,11 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
-注意哦 是PlugInstall, 而不是PluginIntall
+注意哦 是PlugInstall PluginIntall
 
 然后
 vim
-:BinaryInstall
+:GoInstallBinary
 
 
 然后去vimrc.local里面写入这些安装
@@ -116,3 +103,19 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:ycm_key_list_select_completion = ['<C-n>', '<space>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+
+然后
+cd ~/.vim/bundle/YCM
+git submodule update --init --recursive
+去下载cmake
+先去官网下载,下载完后执行
+sudo “/Applications/CMake.app/Contents/bin/cmake-gui” —install
+直接apt-get install cmake 或者brew install cmake就可以了
+然后在ycm目录下执行
+./install.py --gocode-completer
+
+ERROR: Unable to find executable 'go'. go is required to build gocode.
+这个错误并不影响执行
+
+如果出现了ulntips的错误,那就是去下载brew 的vim,因为他的python是3
