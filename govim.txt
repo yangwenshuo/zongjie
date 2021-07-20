@@ -118,4 +118,12 @@ sudo “/Applications/CMake.app/Contents/bin/cmake-gui” —install
 ERROR: Unable to find executable 'go'. go is required to build gocode.
 这个错误并不影响执行
 
+会提示没有gcc 用brew下载gcc  但是brew下载的gcc的名字不是gcc和个g++ 而是gcc-11,所以我们要ln出来一个
+gcc
+然后会提示找不到CMAKE_C_COMPILER CMAKE_CXX_COMPILER 这两个环境变量 加一下就OK了
+
+Vim的时候发现ycm的报错,可以:ycmlog查看错误日志
+发现是libstdc++.so.6: version `GLIBCXX_3.4.22' not found这个问题,我们去linxbrew的文件夹
+.linuxbrew/opt/gcc@11/lib/gcc/11 找到libstdc++.so.6复制到usr/bin/x86_gpu就可以了
+
 如果出现了ulntips的错误,那就是去下载brew 的vim,因为他的python是3
